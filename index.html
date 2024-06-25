@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pequenos Momentos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #ff99aa;
+            padding: 20px;
+        }
+        header h1 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #ff6666;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .image-gallery img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .message-box {
+            background-color: #ffe4e1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        footer {
+            background-color: #ff99aa;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bem-Vinda Gab!</h1>
+</header>
+
+<section>
+    <h2>Você é...</h2>
+    <button class="button" onclick="mostrarElogio()">Clique aqui</button>
+    <p id="elogio" class="message-box"></p>
+</section>
+
+<section>
+    <h2>Obrigado por fazer parte da minha vida</h2>
+    <div class="image-gallery">
+        <img src="https://i.pinimg.com/originals/8d/73/dd/8d73dda587435f61d9b8c912a55c0a56.jpg" alt="Cachorrinho fofo">
+        <p class="message-box">Eu + Você = Felicidade</p>
+        <img src="https://media.discordapp.net/attachments/1197188243528110192/1248995741125447722/export202406081041036173.png?ex=667ac96d&is=667977ed&hm=188925281c300f60b2cf1ba0da3956fb01ac71742646d2a2143e3f3174d2fd27&=&format=webp&quality=lossless&width=425&height=425" alt="Pôr do sol">
+        <p class="message-box">Bonito né? Não chega nem aos pés do quanto você é linda</p>
+        <img src="https://www.quer-cafe.com/wp-content/uploads/2022/10/Untitled-design-2022-10-31T174854.662.jpg" alt="Paisagem bonita">
+        <p class="message-box">Só não é mais maravilhoso que você</p>
+        <img src="https://th.bing.com/th/id/R.0fbbb0305ede9d4542d65402be29985f?rik=WuqCJE%2fmZAYATg&pid=ImgRaw&r=0" alt="Paisagem bonita">
+        <p class="message-box">O dicionário nunca esteve tão errado</p>
+    </div>
+</section>
+
+<section>
+    <h2>Curiosidades Sobre Você</h2>
+    <p class="message-box">Sabia que seu sorriso tem o poder de melhorar o dia de qualquer pessoa?</p>
+    <p class="message-box">Você tem um talento incrível para fazer qualquer momento se tornar especial.</p>
+    <p class="message-box">Eu nunca amei uma pessoa tanto quanto eu amo você.</p>
+    <p class="message-box">Você é a pessoa mais maravilhosa do mundo.</p>
+</section>
+
+<section>
+    <h2>Mensagens Diárias</h2>
+    <p class="message-box" id="mensagem-diaria">Bom dia! Que seu dia seja tão maravilhoso quanto você!</p>
+</section>
+
+<section>
+    <h2>Sobre Você</h2>
+    <button class="button" onclick="tocarMusica()">Play</button>
+    <audio id="audio" src="music.mp3"></audio>
+</section>
+
+<footer>
+    Obrigado por visitar este pequeno espaço que fiz com muito carinho para você. Espero que tenha gostado!
+</footer>
+
+<script>
+    function mostrarElogio() {
+        const elogios = [
+            "Brilhante", "Encantadora", "Inteligente", "Linda", "Forte", "Gentil", "Talentosa", "Inspiradora", 
+            "Carinhosa", "Elegante", "Criativa", "Generosa", "Determinada", "Alegre", "Sábia", "Corajosa", 
+            "Amável", "Autêntica", "Fascinante", "Graciosa", "Admirável", "Incrível", "Doce", "Radiante", 
+            "Única", "Vibrante", "Sensacional", "Maravilhosa", "Deslumbrante", "Especial", "Poderosa", 
+            "Cativante", "Sofisticada", "Amigável", "Humilde", "Positiva", "Apaixonante", "Carismática", 
+            "Brava", "Destemida", "Notável", "Bonita", "Verdadeira", "Magnífica", "Afetuosa"
+        ];
+        const randomElogio = elogios[Math.floor(Math.random() * elogios.length)];
+        document.getElementById('elogio').innerText = randomElogio;
+    }
+
+    function mensagemDiaria() {
+        const mensagens = [
+            "Bom dia! Que seu dia seja tão maravilhoso quanto você!",
+            "Obrigado por fazer parte da minha vida.",
+            "Boa noite! Que seus sonhos sejam tão doces quanto o seu sorriso."
+        ];
+        const date = new Date();
+        const mensagem = mensagens[date.getDay() % mensagens.length];
+        document.getElementById('mensagem-diaria').innerText = mensagem;
+    }
+
+    function tocarMusica() {
+        const audio = document.getElementById('audio');
+        audio.play();
+    }
+
+    window.onload = mensagemDiaria;
+</script>
+
+</body>
+</html>
